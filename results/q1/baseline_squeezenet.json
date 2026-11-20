@@ -1,0 +1,14 @@
+{
+  "run": "baseline_squeezenet",
+  "arch": "squeezenet",
+  "best_acc": 61.68,
+  "best_top5": 87.4,
+  "best_epoch": 30,
+  "final_acc": 61.68,
+  "params_M": 0.779684,
+  "size_mb": 3.053250312805176,
+  "train_time_min": 12.740924084186554,
+  "epochs": 30,
+  "checkpoint": "checkpoints/baseline_squeezenet.pt",
+  "method": "baseline"
+}

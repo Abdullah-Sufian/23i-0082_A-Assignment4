@@ -1,0 +1,15 @@
+{
+  "run": "teacher_resnet50",
+  "arch": "resnet50",
+  "best_acc": 84.43,
+  "best_top5": 97.04,
+  "best_epoch": 28,
+  "final_acc": 84.33,
+  "params_M": 23.705252,
+  "size_mb": 90.73290920257568,
+  "train_time_min": 35.60815411408742,
+  "epochs": 30,
+  "checkpoint": "checkpoints/teacher_resnet50.pt",
+  "method": "teacher",
+  "pretrained": true
+}

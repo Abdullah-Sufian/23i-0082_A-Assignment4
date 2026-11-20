@@ -1,0 +1,20 @@
+{
+  "run": "kd_mobilenetv2",
+  "arch": "mobilenetv2",
+  "best_acc": 75.22,
+  "best_top5": 94.5,
+  "best_epoch": 27,
+  "final_acc": 75.22,
+  "params_M": 2.351972,
+  "size_mb": 9.20429515838623,
+  "train_time_min": 26.133047672112784,
+  "epochs": 30,
+  "checkpoint": "checkpoints/kd_mobilenetv2.pt",
+  "method": "kd",
+  "T": 4.0,
+  "alpha": 0.9,
+  "beta": 1.0,
+  "feat_loss": "fitnet",
+  "hints": "0,1",
+  "teacher": "checkpoints/teacher_resnet50.pt"
+}

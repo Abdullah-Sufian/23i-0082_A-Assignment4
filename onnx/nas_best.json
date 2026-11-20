@@ -1,0 +1,33 @@
+{
+  "run": "nas_best",
+  "arch": "nas",
+  "method": "nas",
+  "dataset": "cifar10",
+  "num_classes": 10,
+  "input_size": 24,
+  "mean": [
+    0.4914,
+    0.4822,
+    0.4465
+  ],
+  "std": [
+    0.247,
+    0.2435,
+    0.2616
+  ],
+  "classes": [
+    "airplane",
+    "automobile",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck"
+  ],
+  "pytorch_test_acc": 89.97,
+  "source_checkpoint": "checkpoints/nas_best.pt",
+  "opset": 17
+}

@@ -1,0 +1,2154 @@
+[
+  {
+    "id": "2bf5ac3ebd",
+    "index": 0,
+    "origin": "random",
+    "arch": "r28 s16 | dwsep1x64k7-silu | dwsep2x96k7-relu6 | conv3x128k7-relu6 | h0",
+    "resolution": 28,
+    "num_stages": 3,
+    "total_blocks": 6,
+    "params_m": 2.2361,
+    "size_mb": 8.5561,
+    "act_mem_est_mb": 0.3828,
+    "latency_mean_ms": 6.7955,
+    "latency_p50_ms": 6.8,
+    "latency_p95_ms": 7.4339,
+    "latency_std_ms": 0.3101,
+    "peak_mem_mb": 16.0898,
+    "throughput_img_s": 147.1564,
+    "feasible": false,
+    "reject_reason": "size 8.56MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.0,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 1,
+          "channels": 64,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "silu"
+        },
+        {
+          "block": "dwsep",
+          "depth": 2,
+          "channels": 96,
+          "kernel": 7,
+          "expand": 2,
+          "activation": "relu6"
+        },
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 128,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "94c8b44fff",
+    "index": 1,
+    "origin": "random",
+    "arch": "r32 s24 | dwsep3x24k5-hswish | conv3x64k5-hswish | mbconv1x64k7e4-relu | h256",
+    "resolution": 32,
+    "num_stages": 3,
+    "total_blocks": 7,
+    "params_m": 0.314,
+    "size_mb": 1.2333,
+    "act_mem_est_mb": 0.5,
+    "latency_mean_ms": 6.5063,
+    "latency_p50_ms": 6.4841,
+    "latency_p95_ms": 7.12,
+    "latency_std_ms": 0.3663,
+    "peak_mem_mb": 14.8984,
+    "throughput_img_s": 153.6979,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 65.6,
+    "score": 66.5559,
+    "eval_time_s": 40.4,
+    "config": {
+      "resolution": 32,
+      "stem_channels": 24,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 64,
+          "kernel": 5,
+          "expand": 6,
+          "activation": "hswish"
+        },
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 64,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu"
+        }
+      ],
+      "head_channels": 256,
+      "dropout": 0.0
+    }
+  },
+  {
+    "id": "5cbfa58bdb",
+    "index": 2,
+    "origin": "random",
+    "arch": "r28 s32 | dwsep3x24k3-relu6 | conv3x64k3-hswish | dwsep1x64k7-relu | mbconv1x128k5e2-silu | h128",
+    "resolution": 28,
+    "num_stages": 4,
+    "total_blocks": 8,
+    "params_m": 0.1458,
+    "size_mb": 0.5936,
+    "act_mem_est_mb": 0.1914,
+    "latency_mean_ms": 5.2844,
+    "latency_p50_ms": 5.2896,
+    "latency_p95_ms": 5.7335,
+    "latency_std_ms": 0.4009,
+    "peak_mem_mb": 13.5664,
+    "throughput_img_s": 189.238,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 60.26,
+    "score": 62.0349,
+    "eval_time_s": 40.0,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 3,
+          "expand": 6,
+          "activation": "relu6"
+        },
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 64,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "hswish"
+        },
+        {
+          "block": "dwsep",
+          "depth": 1,
+          "channels": 64,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu"
+        },
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 2,
+          "activation": "silu"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.1
+    }
+  },
+  {
+    "id": "8cfaea84f8",
+    "index": 3,
+    "origin": "random",
+    "arch": "r32 s32 | conv1x16k7-hswish | conv3x32k3-relu | h512",
+    "resolution": 32,
+    "num_stages": 2,
+    "total_blocks": 4,
+    "params_m": 0.0718,
+    "size_mb": 0.2909,
+    "act_mem_est_mb": 1.0,
+    "latency_mean_ms": 3.6393,
+    "latency_p50_ms": 3.3906,
+    "latency_p95_ms": 5.2168,
+    "latency_std_ms": 0.7285,
+    "peak_mem_mb": 13.5352,
+    "throughput_img_s": 274.7745,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 51.64,
+    "score": 54.5671,
+    "eval_time_s": 36.6,
+    "config": {
+      "resolution": 32,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 16,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 32,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "relu"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "02c5095539",
+    "index": 4,
+    "origin": "random",
+    "arch": "r24 s16 | dwsep3x48k3-silu | dwsep2x96k3-relu | mbconv2x96k3e2-hswish | conv2x96k5-relu | h128",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 9,
+    "params_m": 0.5773,
+    "size_mb": 2.2543,
+    "act_mem_est_mb": 0.2109,
+    "latency_mean_ms": 4.8488,
+    "latency_p50_ms": 4.6801,
+    "latency_p95_ms": 5.9529,
+    "latency_std_ms": 0.5498,
+    "peak_mem_mb": 14.9531,
+    "throughput_img_s": 206.2363,
+    "feasible": false,
+    "reject_reason": "size 2.25MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 4.6,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 48,
+          "kernel": 3,
+          "expand": 6,
+          "activation": "silu"
+        },
+        {
+          "block": "dwsep",
+          "depth": 2,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "relu"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 96,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.0
+    }
+  },
+  {
+    "id": "b1496a4244",
+    "index": 5,
+    "origin": "random",
+    "arch": "r28 s16 | mbconv3x24k3e2-relu6 | mbconv1x64k3e4-relu | conv1x96k7-silu | conv3x96k7-relu | h128",
+    "resolution": 28,
+    "num_stages": 4,
+    "total_blocks": 8,
+    "params_m": 1.6884,
+    "size_mb": 6.4829,
+    "act_mem_est_mb": 0.5742,
+    "latency_mean_ms": 8.2974,
+    "latency_p50_ms": 8.2904,
+    "latency_p95_ms": 9.9094,
+    "latency_std_ms": 1.0863,
+    "peak_mem_mb": 17.2344,
+    "throughput_img_s": 120.5198,
+    "feasible": false,
+    "reject_reason": "latency 8.30ms > 8.0ms; size 6.48MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.5,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 64,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "relu"
+        },
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 96,
+          "kernel": 7,
+          "expand": 2,
+          "activation": "silu"
+        },
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 96,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.0
+    }
+  },
+  {
+    "id": "00e9a9786d",
+    "index": 6,
+    "origin": "random",
+    "arch": "r24 s32 | dwsep2x128k3-silu | conv3x160k3-hswish | dwsep3x32k7-relu6 | conv3x32k3-hswish | h512",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 11,
+    "params_m": 0.7389,
+    "size_mb": 2.8673,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 6.3482,
+    "latency_p50_ms": 6.3285,
+    "latency_p95_ms": 6.8834,
+    "latency_std_ms": 0.3527,
+    "peak_mem_mb": 15.5078,
+    "throughput_img_s": 157.5239,
+    "feasible": false,
+    "reject_reason": "size 2.87MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 4.8,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "silu"
+        },
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 32,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "relu6"
+        },
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 32,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "hswish"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "4e226a3ae3",
+    "index": 7,
+    "origin": "random",
+    "arch": "r28 s32 | conv2x128k7-hswish | dwsep3x160k3-relu | h0",
+    "resolution": 28,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 1.0841,
+    "size_mb": 4.1625,
+    "act_mem_est_mb": 0.7656,
+    "latency_mean_ms": 16.4397,
+    "latency_p50_ms": 16.2675,
+    "latency_p95_ms": 17.8594,
+    "latency_std_ms": 0.8819,
+    "peak_mem_mb": 18.4258,
+    "throughput_img_s": 60.8283,
+    "feasible": false,
+    "reject_reason": "latency 16.44ms > 8.0ms; size 4.16MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.6,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "hswish"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 6,
+          "activation": "relu"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.1
+    }
+  },
+  {
+    "id": "978e36bc17",
+    "index": 8,
+    "origin": "random",
+    "arch": "r28 s32 | conv3x64k3-silu | dwsep3x128k7-relu6 | dwsep3x160k7-relu | mbconv2x160k3e2-silu | h512",
+    "resolution": 28,
+    "num_stages": 4,
+    "total_blocks": 11,
+    "params_m": 0.5488,
+    "size_mb": 2.1675,
+    "act_mem_est_mb": 0.3828,
+    "latency_mean_ms": 7.8613,
+    "latency_p50_ms": 7.6746,
+    "latency_p95_ms": 10.472,
+    "latency_std_ms": 0.9429,
+    "peak_mem_mb": 14.9609,
+    "throughput_img_s": 127.2052,
+    "feasible": false,
+    "reject_reason": "size 2.17MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.4,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 64,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "silu"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 128,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "relu6"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 7,
+          "expand": 2,
+          "activation": "relu"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "silu"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.0
+    }
+  },
+  {
+    "id": "4c3b4ee2db",
+    "index": 9,
+    "origin": "random",
+    "arch": "r28 s16 | mbconv3x128k7e6-relu | conv2x128k5-silu | mbconv1x16k5e4-hswish | h512",
+    "resolution": 28,
+    "num_stages": 3,
+    "total_blocks": 6,
+    "params_m": 1.4174,
+    "size_mb": 5.4791,
+    "act_mem_est_mb": 4.5938,
+    "latency_mean_ms": 27.6136,
+    "latency_p50_ms": 27.172,
+    "latency_p95_ms": 34.1103,
+    "latency_std_ms": 2.4106,
+    "peak_mem_mb": 27.3945,
+    "throughput_img_s": 36.2141,
+    "feasible": false,
+    "reject_reason": "latency 27.61ms > 8.0ms; size 5.48MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 6.0,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 128,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "relu"
+        },
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 6,
+          "activation": "silu"
+        },
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 16,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "hswish"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.0
+    }
+  },
+  {
+    "id": "2b41a2d284",
+    "index": 10,
+    "origin": "random",
+    "arch": "r24 s24 | mbconv1x32k3e4-silu | conv1x160k3-relu | mbconv3x160k5e4-relu6 | dwsep3x160k3-silu | h128",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 8,
+    "params_m": 0.8299,
+    "size_mb": 3.2499,
+    "act_mem_est_mb": 0.7031,
+    "latency_mean_ms": 5.4248,
+    "latency_p50_ms": 5.4483,
+    "latency_p95_ms": 5.953,
+    "latency_std_ms": 0.3268,
+    "peak_mem_mb": 14.5195,
+    "throughput_img_s": 184.3392,
+    "feasible": false,
+    "reject_reason": "size 3.25MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.6,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 24,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 32,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "silu"
+        },
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 6,
+          "activation": "relu"
+        },
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "silu"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "2ef459300d",
+    "index": 11,
+    "origin": "random",
+    "arch": "r24 s16 | mbconv3x96k3e2-hswish | conv1x48k7-hswish | mbconv1x160k7e6-silu | dwsep3x160k3-hswish | h128",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 8,
+    "params_m": 0.4902,
+    "size_mb": 1.9324,
+    "act_mem_est_mb": 0.8438,
+    "latency_mean_ms": 7.2879,
+    "latency_p50_ms": 7.0581,
+    "latency_p95_ms": 9.3579,
+    "latency_std_ms": 0.8876,
+    "peak_mem_mb": 16.5469,
+    "throughput_img_s": 137.2129,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 67.02,
+    "score": 67.4588,
+    "eval_time_s": 43.8,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 48,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 160,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "silu"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "hswish"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.1
+    }
+  },
+  {
+    "id": "b1d5931a4a",
+    "index": 12,
+    "origin": "random",
+    "arch": "r24 s24 | dwsep2x24k5-relu | conv1x96k5-silu | conv2x24k5-relu6 | h128",
+    "resolution": 24,
+    "num_stages": 3,
+    "total_blocks": 5,
+    "params_m": 0.1377,
+    "size_mb": 0.5455,
+    "act_mem_est_mb": 0.1055,
+    "latency_mean_ms": 2.5126,
+    "latency_p50_ms": 2.5124,
+    "latency_p95_ms": 2.8272,
+    "latency_std_ms": 0.1762,
+    "peak_mem_mb": 13.6914,
+    "throughput_img_s": 397.9921,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 56.46,
+    "score": 61.2278,
+    "eval_time_s": 37.6,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 24,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 2,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 6,
+          "activation": "relu"
+        },
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 96,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "silu"
+        },
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 6,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "5327538923",
+    "index": 13,
+    "origin": "random",
+    "arch": "r24 s16 | conv2x128k5-silu | mbconv2x160k5e4-relu | mbconv2x160k3e4-hswish | conv1x160k7-relu | h128",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 7,
+    "params_m": 2.5517,
+    "size_mb": 9.8125,
+    "act_mem_est_mb": 2.25,
+    "latency_mean_ms": 13.0661,
+    "latency_p50_ms": 12.7271,
+    "latency_p95_ms": 15.8704,
+    "latency_std_ms": 1.3507,
+    "peak_mem_mb": 21.2461,
+    "throughput_img_s": 76.5341,
+    "feasible": false,
+    "reject_reason": "latency 13.07ms > 8.0ms; size 9.81MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.2,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "silu"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 160,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 160,
+          "kernel": 7,
+          "expand": 2,
+          "activation": "relu"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.0
+    }
+  },
+  {
+    "id": "503c640682",
+    "index": 14,
+    "origin": "random",
+    "arch": "r24 s16 | conv1x128k7-hswish | dwsep3x128k5-hswish | dwsep3x128k5-hswish | h0",
+    "resolution": 24,
+    "num_stages": 3,
+    "total_blocks": 7,
+    "params_m": 0.2229,
+    "size_mb": 0.8901,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.7012,
+    "latency_p50_ms": 4.3499,
+    "latency_p95_ms": 7.2234,
+    "latency_std_ms": 0.9161,
+    "peak_mem_mb": 13.8594,
+    "throughput_img_s": 212.71,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 59.72,
+    "score": 61.9842,
+    "eval_time_s": 40.3,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 128,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "hswish"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 2,
+          "activation": "hswish"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 2,
+          "activation": "hswish"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "26efdb97e4",
+    "index": 15,
+    "origin": "random",
+    "arch": "r24 s32 | mbconv1x24k5e4-hswish | conv1x96k3-relu6 | dwsep3x96k3-silu | h512",
+    "resolution": 24,
+    "num_stages": 3,
+    "total_blocks": 5,
+    "params_m": 0.1195,
+    "size_mb": 0.4901,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 2.9021,
+    "latency_p50_ms": 2.8484,
+    "latency_p95_ms": 3.4776,
+    "latency_std_ms": 0.3224,
+    "peak_mem_mb": 13.8984,
+    "throughput_img_s": 344.5804,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 59.34,
+    "score": 63.7051,
+    "eval_time_s": 39.7,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "relu6"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 6,
+          "activation": "silu"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "99c17801ad",
+    "index": 16,
+    "origin": "random",
+    "arch": "r24 s16 | dwsep3x160k7-silu | mbconv3x48k7e6-relu6 | mbconv3x96k5e2-relu6 | mbconv1x128k7e4-silu | h0",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 10,
+    "params_m": 0.619,
+    "size_mb": 2.4609,
+    "act_mem_est_mb": 4.2188,
+    "latency_mean_ms": 13.6147,
+    "latency_p50_ms": 13.1389,
+    "latency_p95_ms": 20.0166,
+    "latency_std_ms": 1.8828,
+    "peak_mem_mb": 21.4766,
+    "throughput_img_s": 73.4502,
+    "feasible": false,
+    "reject_reason": "latency 13.61ms > 8.0ms; size 2.46MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.3,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "silu"
+        },
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 48,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 96,
+          "kernel": 5,
+          "expand": 2,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 128,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "silu"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.0
+    }
+  },
+  {
+    "id": "98fe48988c",
+    "index": 17,
+    "origin": "random",
+    "arch": "r32 s32 | conv1x64k3-hswish | conv3x160k5-silu | h0",
+    "resolution": 32,
+    "num_stages": 2,
+    "total_blocks": 4,
+    "params_m": 1.5581,
+    "size_mb": 5.9581,
+    "act_mem_est_mb": 0.5,
+    "latency_mean_ms": 10.269,
+    "latency_p50_ms": 10.1444,
+    "latency_p95_ms": 11.6544,
+    "latency_std_ms": 0.6505,
+    "peak_mem_mb": 16.625,
+    "throughput_img_s": 97.3803,
+    "feasible": false,
+    "reject_reason": "latency 10.27ms > 8.0ms; size 5.96MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.9,
+    "config": {
+      "resolution": 32,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 64,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 5,
+          "expand": 6,
+          "activation": "silu"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "fd5368c56e",
+    "index": 18,
+    "origin": "random",
+    "arch": "r24 s32 | mbconv3x24k7e4-relu6 | mbconv2x160k5e4-relu6 | h0",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.2805,
+    "size_mb": 1.1191,
+    "act_mem_est_mb": 0.7031,
+    "latency_mean_ms": 4.7643,
+    "latency_p50_ms": 4.76,
+    "latency_p95_ms": 5.4146,
+    "latency_std_ms": 0.3572,
+    "peak_mem_mb": 14.875,
+    "throughput_img_s": 209.8953,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 61.38,
+    "score": 63.6478,
+    "eval_time_s": 45.1,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 160,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "6761cb1c60",
+    "index": 19,
+    "origin": "random",
+    "arch": "r32 s16 | dwsep3x64k5-silu | dwsep2x128k5-relu6 | h128",
+    "resolution": 32,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.0622,
+    "size_mb": 0.2672,
+    "act_mem_est_mb": 0.5,
+    "latency_mean_ms": 4.0369,
+    "latency_p50_ms": 4.0133,
+    "latency_p95_ms": 4.3816,
+    "latency_std_ms": 0.3252,
+    "peak_mem_mb": 13.7617,
+    "throughput_img_s": 247.7125,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 57.56,
+    "score": 60.3828,
+    "eval_time_s": 40.0,
+    "config": {
+      "resolution": 32,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 64,
+          "kernel": 5,
+          "expand": 2,
+          "activation": "silu"
+        },
+        {
+          "block": "dwsep",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 2,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.1
+    }
+  },
+  {
+    "id": "57bb061d07",
+    "index": 20,
+    "origin": "random",
+    "arch": "r32 s24 | dwsep1x16k5-relu6 | mbconv3x24k7e6-relu6 | dwsep2x16k7-silu | conv2x32k3-relu6 | h0",
+    "resolution": 32,
+    "num_stages": 4,
+    "total_blocks": 8,
+    "params_m": 0.0569,
+    "size_mb": 0.259,
+    "act_mem_est_mb": 0.75,
+    "latency_mean_ms": 3.8838,
+    "latency_p50_ms": 3.9233,
+    "latency_p95_ms": 4.1535,
+    "latency_std_ms": 0.1887,
+    "peak_mem_mb": 13.4961,
+    "throughput_img_s": 257.4796,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 57.46,
+    "score": 60.4413,
+    "eval_time_s": 41.5,
+    "config": {
+      "resolution": 32,
+      "stem_channels": 24,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 1,
+          "channels": 16,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "relu6"
+        },
+        {
+          "block": "dwsep",
+          "depth": 2,
+          "channels": 16,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "silu"
+        },
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 32,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "ba8850c653",
+    "index": 21,
+    "origin": "mutation_of_2ef459300d",
+    "arch": "r24 s16 | dwsep3x96k3-hswish | conv1x48k7-hswish | mbconv1x160k7e6-silu | dwsep3x160k3-hswish | h128",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 8,
+    "params_m": 0.4297,
+    "size_mb": 1.6917,
+    "act_mem_est_mb": 0.4219,
+    "latency_mean_ms": 5.1701,
+    "latency_p50_ms": 5.0963,
+    "latency_p95_ms": 6.1563,
+    "latency_std_ms": 0.504,
+    "peak_mem_mb": 15.4375,
+    "throughput_img_s": 193.4213,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 60.84,
+    "score": 62.7279,
+    "eval_time_s": 41.4,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 48,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 160,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "silu"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "hswish"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.1
+    }
+  },
+  {
+    "id": "6ca627e291",
+    "index": 22,
+    "origin": "mutation_of_26efdb97e4",
+    "arch": "r24 s32 | mbconv1x24k5e4-hswish | conv1x96k3-relu6 | dwsep3x96k3-silu | conv2x128k7-relu | h512",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 7,
+    "params_m": 1.5413,
+    "size_mb": 5.9196,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 6.4644,
+    "latency_p50_ms": 6.3415,
+    "latency_p95_ms": 7.7775,
+    "latency_std_ms": 0.6683,
+    "peak_mem_mb": 16.6055,
+    "throughput_img_s": 154.6937,
+    "feasible": false,
+    "reject_reason": "size 5.92MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 5.1,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 1,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "relu6"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 6,
+          "activation": "silu"
+        },
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "relu"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "c91c8b54c9",
+    "index": 23,
+    "origin": "mutation_of_fd5368c56e",
+    "arch": "r24 s32 | mbconv3x24k7e4-relu6 | mbconv2x128k5e4-relu6 | h0",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.1995,
+    "size_mb": 0.8078,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.433,
+    "latency_p50_ms": 4.4084,
+    "latency_p95_ms": 5.0263,
+    "latency_std_ms": 0.3125,
+    "peak_mem_mb": 14.0781,
+    "throughput_img_s": 225.5827,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 62.64,
+    "score": 65.2829,
+    "eval_time_s": 45.6,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "8b411dc37e",
+    "index": 24,
+    "origin": "mutation_of_fd5368c56e",
+    "arch": "r24 s16 | mbconv3x24k7e4-relu6 | mbconv2x160k5e4-relu6 | h0",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.272,
+    "size_mb": 1.0857,
+    "act_mem_est_mb": 0.7031,
+    "latency_mean_ms": 4.3323,
+    "latency_p50_ms": 4.2983,
+    "latency_p95_ms": 5.0036,
+    "latency_std_ms": 0.3008,
+    "peak_mem_mb": 14.7773,
+    "throughput_img_s": 230.8228,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 61.08,
+    "score": 63.7595,
+    "eval_time_s": 43.0,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 160,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "dd0b75b706",
+    "index": 25,
+    "origin": "mutation_of_2ef459300d",
+    "arch": "r24 s16 | mbconv3x96k3e2-hswish | conv2x48k7-hswish | mbconv1x160k7e6-silu | dwsep3x160k3-hswish | h128",
+    "resolution": 24,
+    "num_stages": 4,
+    "total_blocks": 9,
+    "params_m": 0.6032,
+    "size_mb": 2.3658,
+    "act_mem_est_mb": 0.8438,
+    "latency_mean_ms": 7.5439,
+    "latency_p50_ms": 7.3614,
+    "latency_p95_ms": 9.8131,
+    "latency_std_ms": 0.8673,
+    "peak_mem_mb": 16.6328,
+    "throughput_img_s": 132.5577,
+    "feasible": false,
+    "reject_reason": "size 2.37MB > 2.0MB",
+    "val_acc": null,
+    "score": null,
+    "eval_time_s": 4.7,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 96,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "hswish"
+        },
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 48,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "hswish"
+        },
+        {
+          "block": "mbconv",
+          "depth": 1,
+          "channels": 160,
+          "kernel": 7,
+          "expand": 6,
+          "activation": "silu"
+        },
+        {
+          "block": "dwsep",
+          "depth": 3,
+          "channels": 160,
+          "kernel": 3,
+          "expand": 4,
+          "activation": "hswish"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.1
+    }
+  },
+  {
+    "id": "caed4b5dec",
+    "index": 26,
+    "origin": "mutation_of_c91c8b54c9",
+    "arch": "r24 s32 | mbconv3x24k7e4-relu6 | mbconv2x128k5e4-relu6 | conv2x128k3-silu | h0",
+    "resolution": 24,
+    "num_stages": 3,
+    "total_blocks": 7,
+    "params_m": 0.4949,
+    "size_mb": 1.9405,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 5.3473,
+    "latency_p50_ms": 5.232,
+    "latency_p95_ms": 6.7643,
+    "latency_std_ms": 0.5114,
+    "peak_mem_mb": 14.7031,
+    "throughput_img_s": 187.0119,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 63.0,
+    "score": 64.8019,
+    "eval_time_s": 47.6,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "silu"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "f30a5ca2a9",
+    "index": 27,
+    "origin": "mutation_of_c91c8b54c9",
+    "arch": "r24 s32 | mbconv3x24k7e4-relu6 | mbconv2x128k5e4-relu6 | h512",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.2699,
+    "size_mb": 1.082,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 5.0885,
+    "latency_p50_ms": 5.1389,
+    "latency_p95_ms": 5.5073,
+    "latency_std_ms": 0.3106,
+    "peak_mem_mb": 14.2773,
+    "throughput_img_s": 196.521,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 61.86,
+    "score": 63.8506,
+    "eval_time_s": 46.8,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "a46cfe93aa",
+    "index": 28,
+    "origin": "mutation_of_c91c8b54c9",
+    "arch": "r24 s32 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h0",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.1918,
+    "size_mb": 0.7785,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.421,
+    "latency_p50_ms": 4.3973,
+    "latency_p95_ms": 4.8936,
+    "latency_std_ms": 0.2588,
+    "peak_mem_mb": 13.957,
+    "throughput_img_s": 226.1956,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 64.66,
+    "score": 67.4009,
+    "eval_time_s": 41.3,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "00ef554c04",
+    "index": 29,
+    "origin": "mutation_of_c91c8b54c9",
+    "arch": "r24 s24 | mbconv3x24k7e4-relu6 | mbconv2x128k5e4-relu6 | h0",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.195,
+    "size_mb": 0.7903,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.2004,
+    "latency_p50_ms": 4.1766,
+    "latency_p95_ms": 4.6594,
+    "latency_std_ms": 0.2521,
+    "peak_mem_mb": 14.0391,
+    "throughput_img_s": 238.0725,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 61.8,
+    "score": 64.6509,
+    "eval_time_s": 44.4,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 24,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "744f586898",
+    "index": 30,
+    "origin": "mutation_of_a46cfe93aa",
+    "arch": "r28 s32 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h0",
+    "resolution": 28,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.1918,
+    "size_mb": 0.7785,
+    "act_mem_est_mb": 0.7656,
+    "latency_mean_ms": 5.2,
+    "latency_p50_ms": 5.1757,
+    "latency_p95_ms": 5.755,
+    "latency_std_ms": 0.2659,
+    "peak_mem_mb": 15.3789,
+    "throughput_img_s": 192.3061,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 64.62,
+    "score": 66.5982,
+    "eval_time_s": 42.4,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "6f30cda90d",
+    "index": 31,
+    "origin": "mutation_of_caed4b5dec",
+    "arch": "r28 s32 | mbconv3x24k7e4-relu6 | mbconv2x128k5e4-relu6 | conv2x128k3-silu | h0",
+    "resolution": 28,
+    "num_stages": 3,
+    "total_blocks": 7,
+    "params_m": 0.4949,
+    "size_mb": 1.9405,
+    "act_mem_est_mb": 0.7656,
+    "latency_mean_ms": 7.076,
+    "latency_p50_ms": 6.8489,
+    "latency_p95_ms": 9.2104,
+    "latency_std_ms": 0.8206,
+    "peak_mem_mb": 16.8281,
+    "throughput_img_s": 141.3228,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 63.98,
+    "score": 64.532,
+    "eval_time_s": 55.5,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "conv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 3,
+          "expand": 2,
+          "activation": "silu"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "26ce6e1d52",
+    "index": 32,
+    "origin": "mutation_of_c91c8b54c9",
+    "arch": "r28 s32 | mbconv3x24k7e4-relu6 | mbconv2x128k5e4-relu6 | h0",
+    "resolution": 28,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.1995,
+    "size_mb": 0.8078,
+    "act_mem_est_mb": 0.7656,
+    "latency_mean_ms": 5.6898,
+    "latency_p50_ms": 5.6326,
+    "latency_p95_ms": 6.2665,
+    "latency_std_ms": 0.4252,
+    "peak_mem_mb": 15.3594,
+    "throughput_img_s": 175.7527,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 60.4,
+    "score": 61.8581,
+    "eval_time_s": 54.9,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "8cd519da2f",
+    "index": 33,
+    "origin": "mutation_of_744f586898",
+    "arch": "r28 s32 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-hswish | h0",
+    "resolution": 28,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.1918,
+    "size_mb": 0.7785,
+    "act_mem_est_mb": 0.7656,
+    "latency_mean_ms": 5.0199,
+    "latency_p50_ms": 4.9971,
+    "latency_p95_ms": 5.4734,
+    "latency_std_ms": 0.3008,
+    "peak_mem_mb": 15.5195,
+    "throughput_img_s": 199.2081,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 61.74,
+    "score": 63.7873,
+    "eval_time_s": 43.5,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "hswish"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "d4cedfa858",
+    "index": 34,
+    "origin": "mutation_of_c91c8b54c9",
+    "arch": "r24 s32 | mbconv3x24k7e4-relu6 | mbconv2x32k5e4-relu6 | h0",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.0549,
+    "size_mb": 0.249,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.0081,
+    "latency_p50_ms": 3.7571,
+    "latency_p95_ms": 5.8399,
+    "latency_std_ms": 0.7751,
+    "peak_mem_mb": 13.1758,
+    "throughput_img_s": 249.4941,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 59.84,
+    "score": 62.8061,
+    "eval_time_s": 43.4,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 7,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 32,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "7a9feb58bc",
+    "index": 35,
+    "origin": "mutation_of_744f586898",
+    "arch": "r28 s16 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h0",
+    "resolution": 28,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.1849,
+    "size_mb": 0.751,
+    "act_mem_est_mb": 0.7656,
+    "latency_mean_ms": 4.8585,
+    "latency_p50_ms": 4.8716,
+    "latency_p95_ms": 5.2396,
+    "latency_std_ms": 0.247,
+    "peak_mem_mb": 15.2617,
+    "throughput_img_s": 205.8231,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 64.44,
+    "score": 66.7293,
+    "eval_time_s": 41.4,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 16,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "5ec3baf9ac",
+    "index": 36,
+    "origin": "mutation_of_a46cfe93aa",
+    "arch": "r24 s32 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h128",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.2085,
+    "size_mb": 0.8447,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.3252,
+    "latency_p50_ms": 4.3648,
+    "latency_p95_ms": 4.7754,
+    "latency_std_ms": 0.2908,
+    "peak_mem_mb": 14.2852,
+    "throughput_img_s": 231.2047,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 63.42,
+    "score": 66.2098,
+    "eval_time_s": 40.3,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 128,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "c3b0562273",
+    "index": 37,
+    "origin": "mutation_of_a46cfe93aa",
+    "arch": "r24 s32 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h256",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.2264,
+    "size_mb": 0.914,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.4232,
+    "latency_p50_ms": 4.3919,
+    "latency_p95_ms": 4.8093,
+    "latency_std_ms": 0.2753,
+    "peak_mem_mb": 14.25,
+    "throughput_img_s": 226.0831,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 63.14,
+    "score": 65.8142,
+    "eval_time_s": 40.7,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 256,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "8eb4571101",
+    "index": 38,
+    "origin": "mutation_of_a46cfe93aa",
+    "arch": "r24 s32 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h512",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.2622,
+    "size_mb": 1.0527,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.7932,
+    "latency_p50_ms": 4.6223,
+    "latency_p95_ms": 6.1969,
+    "latency_std_ms": 0.6337,
+    "peak_mem_mb": 14.2305,
+    "throughput_img_s": 208.629,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 65.7,
+    "score": 68.0986,
+    "eval_time_s": 40.7,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.2
+    }
+  },
+  {
+    "id": "c930839dd3",
+    "index": 39,
+    "origin": "mutation_of_7a9feb58bc",
+    "arch": "r28 s24 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h0",
+    "resolution": 28,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.1881,
+    "size_mb": 0.7639,
+    "act_mem_est_mb": 0.7656,
+    "latency_mean_ms": 5.1949,
+    "latency_p50_ms": 5.0651,
+    "latency_p95_ms": 6.2924,
+    "latency_std_ms": 0.5943,
+    "peak_mem_mb": 15.293,
+    "throughput_img_s": 192.4947,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 61.88,
+    "score": 63.7787,
+    "eval_time_s": 41.4,
+    "config": {
+      "resolution": 28,
+      "stem_channels": 24,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 0,
+      "dropout": 0.2
+    }
+  }
+]

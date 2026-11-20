@@ -1,0 +1,20 @@
+{
+  "run": "kd_efficientnet_lite0",
+  "arch": "efficientnet_lite0",
+  "best_acc": 76.31,
+  "best_top5": 94.55,
+  "best_epoch": 30,
+  "final_acc": 76.31,
+  "params_M": 3.499108,
+  "size_mb": 13.604292869567871,
+  "train_time_min": 29.198024439811707,
+  "epochs": 30,
+  "checkpoint": "checkpoints/kd_efficientnet_lite0.pt",
+  "method": "kd",
+  "T": 4.0,
+  "alpha": 0.9,
+  "beta": 1.0,
+  "feat_loss": "fitnet",
+  "hints": "0,1",
+  "teacher": "checkpoints/teacher_resnet50.pt"
+}

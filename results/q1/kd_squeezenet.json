@@ -1,0 +1,20 @@
+{
+  "run": "kd_squeezenet",
+  "arch": "squeezenet",
+  "best_acc": 63.14,
+  "best_top5": 88.15,
+  "best_epoch": 29,
+  "final_acc": 63.13,
+  "params_M": 0.779684,
+  "size_mb": 3.053250312805176,
+  "train_time_min": 17.05488092104594,
+  "epochs": 30,
+  "checkpoint": "checkpoints/kd_squeezenet.pt",
+  "method": "kd",
+  "T": 4.0,
+  "alpha": 0.9,
+  "beta": 1.0,
+  "feat_loss": "fitnet",
+  "hints": "0,1",
+  "teacher": "checkpoints/teacher_resnet50.pt"
+}

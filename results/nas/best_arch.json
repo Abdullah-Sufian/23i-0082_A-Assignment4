@@ -1,0 +1,144 @@
+{
+  "strategy": "evolution",
+  "constraints": {
+    "max_latency_ms": 8.0,
+    "max_size_mb": 2.0,
+    "max_peak_mem_mb": 64.0,
+    "max_params_m": 1000000000.0
+  },
+  "search_space": {
+    "resolution": [
+      24,
+      28,
+      32
+    ],
+    "stem_channels": [
+      16,
+      24,
+      32
+    ],
+    "num_stages": [
+      2,
+      3,
+      4
+    ],
+    "depth": [
+      1,
+      2,
+      3
+    ],
+    "channels": [
+      16,
+      24,
+      32,
+      48,
+      64,
+      96,
+      128,
+      160
+    ],
+    "kernel": [
+      3,
+      5,
+      7
+    ],
+    "block": [
+      "conv",
+      "dwsep",
+      "mbconv"
+    ],
+    "expand": [
+      2,
+      4,
+      6
+    ],
+    "activation": [
+      "relu",
+      "relu6",
+      "hswish",
+      "silu"
+    ],
+    "head_channels": [
+      0,
+      128,
+      256,
+      512
+    ],
+    "dropout": [
+      0.0,
+      0.1,
+      0.2
+    ]
+  },
+  "best": {
+    "id": "8eb4571101",
+    "index": 38,
+    "origin": "mutation_of_a46cfe93aa",
+    "arch": "r24 s32 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h512",
+    "resolution": 24,
+    "num_stages": 2,
+    "total_blocks": 5,
+    "params_m": 0.2622,
+    "size_mb": 1.0527,
+    "act_mem_est_mb": 0.5625,
+    "latency_mean_ms": 4.7932,
+    "latency_p50_ms": 4.6223,
+    "latency_p95_ms": 6.1969,
+    "latency_std_ms": 0.6337,
+    "peak_mem_mb": 14.2305,
+    "throughput_img_s": 208.629,
+    "feasible": true,
+    "reject_reason": "",
+    "val_acc": 65.7,
+    "score": 68.0986,
+    "eval_time_s": 40.7,
+    "config": {
+      "resolution": 24,
+      "stem_channels": 32,
+      "stages": [
+        {
+          "block": "mbconv",
+          "depth": 3,
+          "channels": 24,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        },
+        {
+          "block": "mbconv",
+          "depth": 2,
+          "channels": 128,
+          "kernel": 5,
+          "expand": 4,
+          "activation": "relu6"
+        }
+      ],
+      "head_channels": 512,
+      "dropout": 0.2
+    }
+  },
+  "config": {
+    "resolution": 24,
+    "stem_channels": 32,
+    "stages": [
+      {
+        "block": "mbconv",
+        "depth": 3,
+        "channels": 24,
+        "kernel": 5,
+        "expand": 4,
+        "activation": "relu6"
+      },
+      {
+        "block": "mbconv",
+        "depth": 2,
+        "channels": 128,
+        "kernel": 5,
+        "expand": 4,
+        "activation": "relu6"
+      }
+    ],
+    "head_channels": 512,
+    "dropout": 0.2
+  }
+}

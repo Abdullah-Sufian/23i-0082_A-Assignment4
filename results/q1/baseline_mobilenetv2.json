@@ -1,0 +1,14 @@
+{
+  "run": "baseline_mobilenetv2",
+  "arch": "mobilenetv2",
+  "best_acc": 72.39,
+  "best_top5": 92.7,
+  "best_epoch": 28,
+  "final_acc": 72.34,
+  "params_M": 2.351972,
+  "size_mb": 9.20429515838623,
+  "train_time_min": 15.950898067156475,
+  "epochs": 30,
+  "checkpoint": "checkpoints/baseline_mobilenetv2.pt",
+  "method": "baseline"
+}

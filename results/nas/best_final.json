@@ -1,0 +1,41 @@
+{
+  "arch": "r24 s32 | mbconv3x24k5e4-relu6 | mbconv2x128k5e4-relu6 | h512",
+  "config": {
+    "resolution": 24,
+    "stem_channels": 32,
+    "stages": [
+      {
+        "block": "mbconv",
+        "depth": 3,
+        "channels": 24,
+        "kernel": 5,
+        "expand": 4,
+        "activation": "relu6"
+      },
+      {
+        "block": "mbconv",
+        "depth": 2,
+        "channels": 128,
+        "kernel": 5,
+        "expand": 4,
+        "activation": "relu6"
+      }
+    ],
+    "head_channels": 512,
+    "dropout": 0.2
+  },
+  "test_acc": 89.97,
+  "epochs": 60,
+  "params_m": 0.262234,
+  "train_time_min": 22.31568719546,
+  "search_val_acc": 65.7,
+  "size_mb": 1.052718162536621,
+  "act_mem_est_mb": 0.5625,
+  "latency_mean_ms": 5.107807080130442,
+  "latency_p50_ms": 4.895825000858167,
+  "latency_p95_ms": 6.609885000216309,
+  "latency_std_ms": 0.713207592832656,
+  "peak_mem_mb": 14.234375,
+  "throughput_img_s": 195.77873328263257,
+  "checkpoint": "checkpoints/nas_best.pt"
+}

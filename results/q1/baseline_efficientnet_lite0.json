@@ -1,0 +1,14 @@
+{
+  "run": "baseline_efficientnet_lite0",
+  "arch": "efficientnet_lite0",
+  "best_acc": 72.12,
+  "best_top5": 92.36,
+  "best_epoch": 27,
+  "final_acc": 72.0,
+  "params_M": 3.499108,
+  "size_mb": 13.604292869567871,
+  "train_time_min": 18.139722617467246,
+  "epochs": 30,
+  "checkpoint": "checkpoints/baseline_efficientnet_lite0.pt",
+  "method": "baseline"
+}
